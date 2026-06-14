@@ -1,0 +1,15 @@
+# Netlify-Konfiguration für die Umfrage-App
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA-Routing: alle Seitenaufrufe liefern index.html, damit /interview,
+# /danke usw. auch bei direktem Aufruf/Neuladen funktionieren.
+# (Formular-Absendungen per POST verarbeitet Netlify davor – wird nicht umgeleitet.)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,12 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>engpass</title>
+    <title>Umfrage – Was nervt dich im Arbeitsalltag?</title>
   </head>
   <body>
+    <!--
+      Verstecktes Formular nur für Netlify: Beim Deploy scannt Netlify das HTML,
+      erkennt dieses Formular und legt unter "Forms" einen Eintrag namens
+      "ai-umfrage" an. Die echte Umfrage sendet ihre Antworten per JavaScript
+      genau an dieses Formular. Feldnamen müssen exakt übereinstimmen.
+    -->
+    <form name="ai-umfrage" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="ai-umfrage" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="sprache" />
+      <input type="text" name="hauptaufgabe" />
+      <input type="text" name="haeufigkeit" />
+      <input type="text" name="manuelleArbeit" />
+      <input type="text" name="aktuelleLoesung" />
+      <input type="text" name="belastung" />
+      <input type="text" name="schonGezahlt" />
+      <input type="text" name="schonGezahltWofuer" />
+      <input type="text" name="wunschtool" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

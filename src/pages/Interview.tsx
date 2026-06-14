@@ -34,22 +34,29 @@ export function InterviewPage() {
 
   const finish = async () => {
     setSubmitting(true);
-    const payload: SurveyResponse = {
+    // Antworten im Netlify-Forms-Format (URL-codiert) an das versteckte
+    // Formular "ai-umfrage" senden. Sie erscheinen danach im Netlify-Dashboard
+    // unter "Forms" und lassen sich dort ansehen, exportieren und löschen.
+    const felder: Record<string, string> = {
+      "form-name": "ai-umfrage",
       sprache: lang,
       hauptaufgabe: draft.hauptaufgabe ?? "",
       haeufigkeit: draft.haeufigkeit ?? "selten",
       manuelleArbeit: draft.manuelleArbeit ?? "",
       aktuelleLoesung: draft.aktuelleLoesung ?? "",
-      belastung: draft.belastung ?? 0,
-      schonGezahlt: draft.schonGezahlt ?? false,
+      belastung: String(draft.belastung ?? ""),
+      schonGezahlt: draft.schonGezahlt ? "Ja" : "Nein",
       schonGezahltWofuer: draft.schonGezahltWofuer ?? "",
       wunschtool: draft.wunschtool ?? "",
     };
+    const body = Object.entries(felder)
+      .map(([k, v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
+      .join("&");
     try {
-      await fetch("/api/responses", {
+      await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
       });
     } catch {
       // Netzwerkfehler – trotzdem zur Danke-Seite
