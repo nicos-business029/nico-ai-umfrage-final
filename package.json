@@ -8,22 +8,16 @@
   },
   "scripts": {
     "dev": "vite",
-    "server": "node server/index.cjs",
     "build": "vite build",
-    "start": "node server/index.cjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.1",
-    "better-sqlite3": "^12.10.1",
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
     "lucide-react": "^1.18.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.17.0",
-    "recharts": "^3.8.1",
     "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
@@ -31,7 +25,6 @@
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@types/recharts": "^1.8.29",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",

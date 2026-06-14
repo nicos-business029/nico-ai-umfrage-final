@@ -1,2 +1,0 @@
-// unused – route removed
-export {};

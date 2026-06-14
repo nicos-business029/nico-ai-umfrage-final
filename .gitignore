@@ -12,8 +12,8 @@ dist
 dist-ssr
 *.local
 
-# Survey database (contains responses – never commit)
-server/data
+# Netlify CLI local state
+.netlify
 
 # Editor directories and files
 .vscode/*
