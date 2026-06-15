@@ -14,4 +14,5 @@ export interface SurveyResponse {
   wunschtool: string;         // F7
   rolle: string;              // F8 Rolle/Position (anonym)
   branche: string;            // F8 Branche (anonym)
+  feedback: string;           // F9 Verbesserungs-Feedback zur Umfrage
 }

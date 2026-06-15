@@ -11,7 +11,7 @@ import { SUBMIT_URL } from "../config";
 
 type Draft = Partial<SurveyResponse>;
 
-const TOTAL = 8;
+const TOTAL = 9;
 
 export function InterviewPage() {
   const { t, lang } = useLanguage();
@@ -50,6 +50,7 @@ export function InterviewPage() {
       wunschtool: draft.wunschtool ?? "",
       rolle: draft.rolle ?? "",
       branche: draft.branche ?? "",
+      feedback: draft.feedback ?? "",
     };
     const body = new URLSearchParams(felder).toString();
     try {
@@ -243,6 +244,23 @@ export function InterviewPage() {
                   value={draft.branche ?? ""}
                   onChange={(e) => set("branche", e.target.value)}
                   className={inputBase}
+                />
+              </div>
+            )}
+
+            {step === 9 && (
+              <div>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(9, TOTAL)}</p>
+                <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q9.title}</h2>
+                <p className="text-sm text-slate-400 mb-5">{t.q.q9.help}</p>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="feedback">
+                  {t.q.q9.label} <span className="text-slate-400 font-normal">{t.common.optional}</span>
+                </label>
+                <textarea id="feedback" rows={3} autoFocus
+                  placeholder={t.q.q9.placeholder}
+                  value={draft.feedback ?? ""}
+                  onChange={(e) => set("feedback", e.target.value)}
+                  className={`${inputBase} resize-none`}
                 />
               </div>
             )}

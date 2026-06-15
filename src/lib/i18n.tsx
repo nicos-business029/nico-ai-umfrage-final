@@ -19,7 +19,7 @@ const de = {
       "Ich entwickle neue Werkzeuge, die Menschen im Arbeitsalltag wirklich entlasten sollen – und dafür möchte ich zuerst verstehen, was dich tatsächlich aufhält, nervt oder unnötig Energie kostet.",
       "Deine ehrlichen Antworten helfen mir herauszufinden, welche Probleme sich wirklich zu lösen lohnen. Es gibt dabei keine richtigen oder falschen Antworten – nur deine Sicht zählt.",
     ],
-    meta: "8 Fragen · ca. 5 Minuten · komplett anonym",
+    meta: "9 Fragen · ca. 5 Minuten · komplett anonym",
     langLabel: "Sprache wählen",
     privacyTitle: "Datenschutz & Anonymität",
     privacy: [
@@ -85,6 +85,12 @@ const de = {
       brancheLabel: "Deine Branche",
       branchePlaceholder: "z. B. Maschinenbau, Handwerk, IT, Einzelhandel …",
     },
+    q9: {
+      title: "Zum Abschluss: Gibt es etwas an dieser Umfrage, das ich verbessern kann?",
+      help: "Fehlt eine Frage? War etwas unklar? Jede Rückmeldung hilft – freiwillig.",
+      label: "Dein Feedback",
+      placeholder: "z. B. eine Frage war missverständlich, oder dir fehlt ein Thema …",
+    },
   },
 };
 
@@ -105,7 +111,7 @@ const en: typeof de = {
       "I'm building new tools designed to genuinely make people's workday easier – and to do that, I first want to understand what actually slows you down, frustrates you, or drains your energy.",
       "Your honest answers help me figure out which problems are truly worth solving. There are no right or wrong answers here – only your perspective matters.",
     ],
-    meta: "8 questions · about 5 minutes · completely anonymous",
+    meta: "9 questions · about 5 minutes · completely anonymous",
     langLabel: "Choose language",
     privacyTitle: "Privacy & anonymity",
     privacy: [
@@ -170,6 +176,12 @@ const en: typeof de = {
       rollePlaceholder: "e.g. sales manager, clerk, managing director …",
       brancheLabel: "Your industry",
       branchePlaceholder: "e.g. manufacturing, trades, IT, retail …",
+    },
+    q9: {
+      title: "Finally: is there anything about this survey I could improve?",
+      help: "Missing a question? Anything unclear? Any feedback helps – optional.",
+      label: "Your feedback",
+      placeholder: "e.g. a question was confusing, or a topic is missing …",
     },
   },
 };

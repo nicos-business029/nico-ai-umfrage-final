@@ -4,9 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 import { copyFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-// Wird unter https://nicos-business029.github.io/nico-ai-umfrage-final/ ausgeliefert.
+// Cloudflare Pages liefert direkt unter der Wurzel der Adresse aus.
 export default defineConfig({
-  base: '/nico-ai-umfrage-final/',
+  base: '/',
   plugins: [
     react(),
     tailwindcss(),
