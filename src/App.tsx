@@ -8,7 +8,7 @@ import { Admin } from "./pages/Admin";
 export default function App() {
   return (
     <LanguageProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/interview" element={<InterviewPage />} />

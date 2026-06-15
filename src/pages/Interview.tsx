@@ -7,6 +7,7 @@ import { ProgressBar } from "../components/ProgressBar";
 import { LanguageToggle } from "../components/LanguageToggle";
 import { useLanguage } from "../lib/i18n";
 import type { SurveyResponse, Haeufigkeit } from "../lib/types";
+import { SUBMIT_URL } from "../config";
 
 type Draft = Partial<SurveyResponse>;
 
@@ -38,7 +39,6 @@ export function InterviewPage() {
     // Formular "ai-umfrage" senden. Sie erscheinen danach im Netlify-Dashboard
     // unter "Forms" und lassen sich dort ansehen, exportieren und löschen.
     const felder: Record<string, string> = {
-      "form-name": "ai-umfrage",
       sprache: lang,
       hauptaufgabe: draft.hauptaufgabe ?? "",
       haeufigkeit: draft.haeufigkeit ?? "selten",
@@ -51,15 +51,18 @@ export function InterviewPage() {
       rolle: draft.rolle ?? "",
       branche: draft.branche ?? "",
     };
-    const body = Object.entries(felder)
-      .map(([k, v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
-      .join("&");
+    const body = new URLSearchParams(felder).toString();
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body,
-      });
+      if (SUBMIT_URL) {
+        // no-cors: Google Apps Script sendet keine CORS-Header; die Antwort
+        // ist nicht lesbar, aber die Daten kommen sicher in der Tabelle an.
+        await fetch(SUBMIT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body,
+        });
+      }
     } catch {
       // Netzwerkfehler – trotzdem zur Danke-Seite
     }

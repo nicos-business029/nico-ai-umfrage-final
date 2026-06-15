@@ -1,12 +1,24 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import { copyFileSync, existsSync } from 'node:fs'
+import { resolve } from 'node:path'
 
+// Wird unter https://nicos-business029.github.io/nico-ai-umfrage-final/ ausgeliefert.
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  server: {
-    proxy: {
-      "/api": "http://localhost:3001",
+  base: '/nico-ai-umfrage-final/',
+  plugins: [
+    react(),
+    tailwindcss(),
+    {
+      // GitHub Pages hat kein SPA-Routing: 404.html = index.html, damit
+      // direkte Aufrufe/Neuladen von /interview, /danke usw. funktionieren.
+      name: 'spa-404-fallback',
+      closeBundle() {
+        const dist = resolve(process.cwd(), 'dist')
+        const index = resolve(dist, 'index.html')
+        if (existsSync(index)) copyFileSync(index, resolve(dist, '404.html'))
+      },
     },
-  },
+  ],
 })
