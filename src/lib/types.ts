@@ -12,4 +12,6 @@ export interface SurveyResponse {
   schonGezahlt: boolean;      // F6
   schonGezahltWofuer?: string;// F6 Zusatz
   wunschtool: string;         // F7
+  rolle: string;              // F8 Rolle/Position (anonym)
+  branche: string;            // F8 Branche (anonym)
 }

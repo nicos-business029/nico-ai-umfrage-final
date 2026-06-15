@@ -19,7 +19,7 @@ const de = {
       "Ich entwickle neue Werkzeuge, die Menschen im Arbeitsalltag wirklich entlasten sollen – und dafür möchte ich zuerst verstehen, was dich tatsächlich aufhält, nervt oder unnötig Energie kostet.",
       "Deine ehrlichen Antworten helfen mir herauszufinden, welche Probleme sich wirklich zu lösen lohnen. Es gibt dabei keine richtigen oder falschen Antworten – nur deine Sicht zählt.",
     ],
-    meta: "7 Fragen · ca. 5 Minuten · komplett anonym",
+    meta: "8 Fragen · ca. 5 Minuten · komplett anonym",
     langLabel: "Sprache wählen",
     privacyTitle: "Datenschutz & Anonymität",
     privacy: [
@@ -77,6 +77,14 @@ const de = {
       label: "Deine Antwort",
       placeholder: "z. B. Etwas, das meine E-Mails automatisch vorsortiert und beantwortet …",
     },
+    q8: {
+      title: "Zum Schluss: Wer bist du beruflich?",
+      help: "Das hilft mir, die Antworten besser einzuordnen – es bleibt vollständig anonym.",
+      rolleLabel: "Deine Rolle / Position",
+      rollePlaceholder: "z. B. Vertriebsleiter, Sachbearbeiterin, Geschäftsführer …",
+      brancheLabel: "Deine Branche",
+      branchePlaceholder: "z. B. Maschinenbau, Handwerk, IT, Einzelhandel …",
+    },
   },
 };
 
@@ -97,7 +105,7 @@ const en: typeof de = {
       "I'm building new tools designed to genuinely make people's workday easier – and to do that, I first want to understand what actually slows you down, frustrates you, or drains your energy.",
       "Your honest answers help me figure out which problems are truly worth solving. There are no right or wrong answers here – only your perspective matters.",
     ],
-    meta: "7 questions · about 5 minutes · completely anonymous",
+    meta: "8 questions · about 5 minutes · completely anonymous",
     langLabel: "Choose language",
     privacyTitle: "Privacy & anonymity",
     privacy: [
@@ -154,6 +162,14 @@ const en: typeof de = {
       help: "Dream freely – no idea is too big or too small.",
       label: "Your answer",
       placeholder: "e.g. something that automatically sorts and answers my emails …",
+    },
+    q8: {
+      title: "Finally: what's your professional role?",
+      help: "This helps me put the answers into context – it stays completely anonymous.",
+      rolleLabel: "Your role / position",
+      rollePlaceholder: "e.g. sales manager, clerk, managing director …",
+      brancheLabel: "Your industry",
+      branchePlaceholder: "e.g. manufacturing, trades, IT, retail …",
     },
   },
 };

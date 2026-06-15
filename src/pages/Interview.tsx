@@ -10,7 +10,7 @@ import type { SurveyResponse, Haeufigkeit } from "../lib/types";
 
 type Draft = Partial<SurveyResponse>;
 
-const TOTAL = 7;
+const TOTAL = 8;
 
 export function InterviewPage() {
   const { t, lang } = useLanguage();
@@ -48,6 +48,8 @@ export function InterviewPage() {
       schonGezahlt: draft.schonGezahlt ? "Ja" : "Nein",
       schonGezahltWofuer: draft.schonGezahltWofuer ?? "",
       wunschtool: draft.wunschtool ?? "",
+      rolle: draft.rolle ?? "",
+      branche: draft.branche ?? "",
     };
     const body = Object.entries(felder)
       .map(([k, v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
@@ -212,6 +214,32 @@ export function InterviewPage() {
                   value={draft.wunschtool ?? ""}
                   onChange={(e) => set("wunschtool", e.target.value)}
                   className={`${inputBase} resize-none`}
+                />
+              </div>
+            )}
+
+            {step === 8 && (
+              <div>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(8, TOTAL)}</p>
+                <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q8.title}</h2>
+                <p className="text-sm text-slate-400 mb-5">{t.q.q8.help}</p>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="rolle">
+                  {t.q.q8.rolleLabel} <span className="text-slate-400 font-normal">{t.common.optional}</span>
+                </label>
+                <input id="rolle" type="text" autoFocus
+                  placeholder={t.q.q8.rollePlaceholder}
+                  value={draft.rolle ?? ""}
+                  onChange={(e) => set("rolle", e.target.value)}
+                  className={inputBase}
+                />
+                <label className="block text-sm font-medium text-slate-700 mb-1.5 mt-4" htmlFor="branche">
+                  {t.q.q8.brancheLabel} <span className="text-slate-400 font-normal">{t.common.optional}</span>
+                </label>
+                <input id="branche" type="text"
+                  placeholder={t.q.q8.branchePlaceholder}
+                  value={draft.branche ?? ""}
+                  onChange={(e) => set("branche", e.target.value)}
+                  className={inputBase}
                 />
               </div>
             )}
