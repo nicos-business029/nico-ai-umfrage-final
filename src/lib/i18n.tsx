@@ -19,7 +19,7 @@ const de = {
       "Ich entwickle neue Werkzeuge, die Menschen im Arbeitsalltag wirklich entlasten sollen – und dafür möchte ich zuerst verstehen, was dich tatsächlich aufhält, nervt oder unnötig Energie kostet.",
       "Deine ehrlichen Antworten helfen mir herauszufinden, welche Probleme sich wirklich zu lösen lohnen. Es gibt dabei keine richtigen oder falschen Antworten – nur deine Sicht zählt.",
     ],
-    meta: "9 Fragen · ca. 5 Minuten · komplett anonym",
+    meta: "8 Fragen · ca. 3–4 Minuten · komplett anonym",
     langLabel: "Sprache wählen",
     privacyTitle: "Datenschutz & Anonymität",
     privacy: [
@@ -42,7 +42,7 @@ const de = {
       title: "Welche wiederkehrende Aufgabe in deinem Alltag nervt dich oder kostet dich am meisten Zeit?",
       help: "Denk an etwas Konkretes, das du immer wieder machen musst.",
       label: "Deine Antwort *",
-      placeholder: "z. B. Termine manuell koordinieren, immer wieder dieselben E-Mails schreiben …",
+      placeholder: "Ein, zwei Sätze oder Stichworte genügen.",
     },
     q2: {
       title: "Wie oft beschäftigt dich das?",
@@ -58,7 +58,7 @@ const de = {
       title: "Was tust du heute dagegen – und warum reicht das nicht?",
       help: "Welche Behelfslösungen oder Tools nutzt du, obwohl sie das Problem nicht wirklich lösen?",
       label: "Deine Antwort",
-      placeholder: "z. B. Ich nutze eine Vorlage, muss aber trotzdem jedes Mal alles anpassen …",
+      placeholder: "Kurz beschrieben – Stichworte genügen.",
     },
     q5: {
       title: "Wie sehr stört dich dieses Problem?",
@@ -75,7 +75,7 @@ const de = {
       title: "Stell dir vor, es gäbe ein Werkzeug, das dir genau eine Sache abnimmt – was wäre das?",
       help: "Träum ruhig – keine Idee ist zu groß oder zu klein.",
       label: "Deine Antwort",
-      placeholder: "z. B. Etwas, das meine E-Mails automatisch vorsortiert und beantwortet …",
+      placeholder: "Beschreib es frei – Stichworte genügen.",
     },
     q8: {
       title: "Zum Schluss: Wer bist du beruflich?",
@@ -111,7 +111,7 @@ const en: typeof de = {
       "I'm building new tools designed to genuinely make people's workday easier – and to do that, I first want to understand what actually slows you down, frustrates you, or drains your energy.",
       "Your honest answers help me figure out which problems are truly worth solving. There are no right or wrong answers here – only your perspective matters.",
     ],
-    meta: "9 questions · about 5 minutes · completely anonymous",
+    meta: "8 questions · about 3–4 minutes · completely anonymous",
     langLabel: "Choose language",
     privacyTitle: "Privacy & anonymity",
     privacy: [
@@ -134,7 +134,7 @@ const en: typeof de = {
       title: "Which recurring task in your day annoys you or eats up the most time?",
       help: "Think of something concrete you have to do again and again.",
       label: "Your answer *",
-      placeholder: "e.g. coordinating appointments by hand, writing the same emails over and over …",
+      placeholder: "A sentence or two – keywords are fine.",
     },
     q2: {
       title: "How often do you deal with this?",
@@ -150,7 +150,7 @@ const en: typeof de = {
       title: "What do you do about it today – and why isn't that enough?",
       help: "Which workarounds or tools do you use, even though they don't really solve the problem?",
       label: "Your answer",
-      placeholder: "e.g. I use a template, but I still have to adjust everything every time …",
+      placeholder: "Briefly – keywords are fine.",
     },
     q5: {
       title: "How much does this problem bother you?",
@@ -167,7 +167,7 @@ const en: typeof de = {
       title: "Imagine there were a tool that took just one thing off your plate – what would it be?",
       help: "Dream freely – no idea is too big or too small.",
       label: "Your answer",
-      placeholder: "e.g. something that automatically sorts and answers my emails …",
+      placeholder: "Describe it freely – keywords are fine.",
     },
     q8: {
       title: "Finally: what's your professional role?",

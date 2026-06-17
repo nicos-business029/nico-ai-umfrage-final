@@ -11,7 +11,7 @@ import { SUBMIT_URL } from "../config";
 
 type Draft = Partial<SurveyResponse>;
 
-const TOTAL = 9;
+const TOTAL = 8;
 
 export function InterviewPage() {
   const { t, lang } = useLanguage();
@@ -27,22 +27,20 @@ export function InterviewPage() {
     switch (step) {
       case 1: return !!draft.hauptaufgabe?.trim();
       case 2: return !!draft.haeufigkeit;
-      case 5: return draft.belastung != null;
-      case 6: return draft.schonGezahlt != null;
+      case 4: return draft.belastung != null;
+      case 5: return draft.schonGezahlt != null;
       default: return true;
     }
   };
 
   const finish = async () => {
     setSubmitting(true);
-    // Antworten im Netlify-Forms-Format (URL-codiert) an das versteckte
-    // Formular "ai-umfrage" senden. Sie erscheinen danach im Netlify-Dashboard
-    // unter "Forms" und lassen sich dort ansehen, exportieren und löschen.
+    // Antworten URL-codiert per no-cors an das Google-Apps-Script senden;
+    // sie landen in der Google-Tabelle (Antwort ist nicht lesbar, kommt aber an).
     const felder: Record<string, string> = {
       sprache: lang,
       hauptaufgabe: draft.hauptaufgabe ?? "",
       haeufigkeit: draft.haeufigkeit ?? "selten",
-      manuelleArbeit: draft.manuelleArbeit ?? "",
       aktuelleLoesung: draft.aktuelleLoesung ?? "",
       belastung: String(draft.belastung ?? ""),
       schonGezahlt: draft.schonGezahlt ? "Ja" : "Nein",
@@ -55,8 +53,6 @@ export function InterviewPage() {
     const body = new URLSearchParams(felder).toString();
     try {
       if (SUBMIT_URL) {
-        // no-cors: Google Apps Script sendet keine CORS-Header; die Antwort
-        // ist nicht lesbar, aber die Daten kommen sicher in der Tabelle an.
         await fetch(SUBMIT_URL, {
           method: "POST",
           mode: "no-cors",
@@ -88,7 +84,7 @@ export function InterviewPage() {
 
             {step === 1 && (
               <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(1, TOTAL)}</p>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(step, TOTAL)}</p>
                 <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q1.title}</h2>
                 <p className="text-sm text-slate-400 mb-5">{t.q.q1.help}</p>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="q1">{t.q.q1.label}</label>
@@ -103,7 +99,7 @@ export function InterviewPage() {
 
             {step === 2 && (
               <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(2, TOTAL)}</p>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(step, TOTAL)}</p>
                 <h2 className="text-xl font-bold text-slate-900 mb-5">{t.q.q2.title}</h2>
                 <div className="grid grid-cols-2 gap-3">
                   {(["taeglich", "woechentlich", "monatlich", "selten"] as Haeufigkeit[]).map((val) => (
@@ -121,24 +117,7 @@ export function InterviewPage() {
 
             {step === 3 && (
               <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(3, TOTAL)}</p>
-                <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q3.title}</h2>
-                <p className="text-sm text-slate-400 mb-5">{t.q.q3.help}</p>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="q3">
-                  {t.q.q3.label} <span className="text-slate-400 font-normal">{t.common.optional}</span>
-                </label>
-                <textarea id="q3" rows={3} autoFocus
-                  placeholder={t.q.q3.placeholder}
-                  value={draft.manuelleArbeit ?? ""}
-                  onChange={(e) => set("manuelleArbeit", e.target.value)}
-                  className={`${inputBase} resize-none`}
-                />
-              </div>
-            )}
-
-            {step === 4 && (
-              <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(4, TOTAL)}</p>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(step, TOTAL)}</p>
                 <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q4.title}</h2>
                 <p className="text-sm text-slate-400 mb-5">{t.q.q4.help}</p>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="q4">
@@ -153,9 +132,9 @@ export function InterviewPage() {
               </div>
             )}
 
-            {step === 5 && (
+            {step === 4 && (
               <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(5, TOTAL)}</p>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(step, TOTAL)}</p>
                 <h2 className="text-xl font-bold text-slate-900 mb-6">{t.q.q5.title}</h2>
                 <div className="flex gap-2">
                   {[1, 2, 3, 4, 5].map((n) => (
@@ -175,9 +154,9 @@ export function InterviewPage() {
               </div>
             )}
 
-            {step === 6 && (
+            {step === 5 && (
               <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(6, TOTAL)}</p>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(step, TOTAL)}</p>
                 <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q6.title}</h2>
                 <p className="text-sm text-slate-400 mb-5">{t.q.q6.help}</p>
                 <div className="flex gap-3 mb-4">
@@ -205,9 +184,9 @@ export function InterviewPage() {
               </div>
             )}
 
-            {step === 7 && (
+            {step === 6 && (
               <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(7, TOTAL)}</p>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(step, TOTAL)}</p>
                 <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q7.title}</h2>
                 <p className="text-sm text-slate-400 mb-5">{t.q.q7.help}</p>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="q7">
@@ -222,9 +201,9 @@ export function InterviewPage() {
               </div>
             )}
 
-            {step === 8 && (
+            {step === 7 && (
               <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(8, TOTAL)}</p>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(step, TOTAL)}</p>
                 <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q8.title}</h2>
                 <p className="text-sm text-slate-400 mb-5">{t.q.q8.help}</p>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="rolle">
@@ -248,9 +227,9 @@ export function InterviewPage() {
               </div>
             )}
 
-            {step === 9 && (
+            {step === 8 && (
               <div>
-                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(9, TOTAL)}</p>
+                <p className="text-sm font-medium text-orange-500 mb-1">{t.progress(step, TOTAL)}</p>
                 <h2 className="text-xl font-bold text-slate-900 mb-2">{t.q.q9.title}</h2>
                 <p className="text-sm text-slate-400 mb-5">{t.q.q9.help}</p>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5" htmlFor="feedback">
