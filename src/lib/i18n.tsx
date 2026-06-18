@@ -16,7 +16,7 @@ const de = {
     eyebrow: "Herzlich willkommen",
     title: "Schön, dass du dabei bist",
     intro: [
-      "Ich entwickle neue Werkzeuge, die Menschen im Arbeitsalltag wirklich entlasten sollen – und dafür möchte ich zuerst verstehen, was dich tatsächlich aufhält, nervt oder unnötig Energie kostet.",
+      "Ich entwickle neue Werkzeuge, die Menschen im Arbeitsalltag wirklich entlasten sollen – und dafür möchte ich zuerst verstehen, was dich in deinem Job tatsächlich aufhält, nervt oder unnötig Energie kostet.",
       "Deine ehrlichen Antworten helfen mir herauszufinden, welche Probleme sich wirklich zu lösen lohnen. Es gibt dabei keine richtigen oder falschen Antworten – nur deine Sicht zählt.",
     ],
     meta: "8 Fragen · ca. 3–4 Minuten · komplett anonym",
@@ -39,8 +39,8 @@ const de = {
   },
   q: {
     q1: {
-      title: "Welche wiederkehrende Aufgabe in deinem Alltag nervt dich oder kostet dich am meisten Zeit?",
-      help: "Denk an etwas Konkretes, das du immer wieder machen musst.",
+      title: "Welche wiederkehrende Aufgabe in deinem Job / Arbeitsalltag nervt dich oder kostet dich am meisten Zeit?",
+      help: "Es geht ausschließlich um deine berufliche Arbeit – nicht um Privates (z. B. Haushalt, Kochen). Denk an etwas Konkretes, das du immer wieder machst.",
       label: "Deine Antwort *",
       placeholder: "Ein, zwei Sätze oder Stichworte genügen.",
     },
@@ -72,8 +72,8 @@ const de = {
       followPlaceholder: "z. B. eine App, ein Freelancer, ein Abo …",
     },
     q7: {
-      title: "Stell dir vor, es gäbe ein Werkzeug, das dir genau eine Sache abnimmt – was wäre das?",
-      help: "Träum ruhig – keine Idee ist zu groß oder zu klein.",
+      title: "Stell dir vor, es gäbe ein Werkzeug für deine Arbeit, das dir genau eine Aufgabe abnimmt – was wäre das?",
+      help: "Bezogen auf deinen Job/Beruf – nicht auf Privates. Träum ruhig, keine Idee ist zu groß oder zu klein.",
       label: "Deine Antwort",
       placeholder: "Beschreib es frei – Stichworte genügen.",
     },
@@ -108,7 +108,7 @@ const en: typeof de = {
     eyebrow: "Welcome",
     title: "Glad you're here",
     intro: [
-      "I'm building new tools designed to genuinely make people's workday easier – and to do that, I first want to understand what actually slows you down, frustrates you, or drains your energy.",
+      "I'm building new tools designed to genuinely make people's workday easier – and to do that, I first want to understand what actually slows you down, frustrates you, or drains your energy at work.",
       "Your honest answers help me figure out which problems are truly worth solving. There are no right or wrong answers here – only your perspective matters.",
     ],
     meta: "8 questions · about 3–4 minutes · completely anonymous",
@@ -131,8 +131,8 @@ const en: typeof de = {
   },
   q: {
     q1: {
-      title: "Which recurring task in your day annoys you or eats up the most time?",
-      help: "Think of something concrete you have to do again and again.",
+      title: "Which recurring task in your job / workday annoys you or eats up the most time?",
+      help: "This is strictly about your professional work – not private life (e.g. chores, cooking). Think of something concrete you do again and again.",
       label: "Your answer *",
       placeholder: "A sentence or two – keywords are fine.",
     },
@@ -164,8 +164,8 @@ const en: typeof de = {
       followPlaceholder: "e.g. an app, a freelancer, a subscription …",
     },
     q7: {
-      title: "Imagine there were a tool that took just one thing off your plate – what would it be?",
-      help: "Dream freely – no idea is too big or too small.",
+      title: "Imagine there were a tool for your work that took one task off your plate – what would it be?",
+      help: "About your job – not private life. Dream freely, no idea is too big or too small.",
       label: "Your answer",
       placeholder: "Describe it freely – keywords are fine.",
     },
